@@ -4,14 +4,22 @@
       <p class="lead">Friend Steps Leaderboard</p>
   </div>
 
+  <p style="text-align:center;">Search for a user by name or # of steps: <input name="searchBox" type="search" ng-model="query"></p>
+
     <ul class="friends-list">
       <li class='friends-list--header'>
+        <!-- <span>Rank</span> -->
         <span>Friend</span>
         <span>Steps</span>
       </li>
-      <li ng-repeat="user in users">
+      <li ng-repeat="user in users | orderBy: stepsSortOrderDesc | filter: query">
+        <!-- <span>
+          Rank {{user.rank}}
+        </span> -->
         <span>
-            {{ user.name.first }} {{ user.name.last }}
+            {{ user.name.first }} {{ user.name.last }} 
+            <img class="user-picture" ng-src="{{user.picture.thumbnail}}" 
+            title="{{user.name.first}} {{user.name.last}}"/>
         </span>
         <span>
           {{ user.steps }}

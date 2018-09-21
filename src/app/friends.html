@@ -1,0 +1,38 @@
+<main role="main" class="container">
+        <div class="page-heading">
+            <h1 class="mt-4">Your Network</h1>
+        </div>
+
+        <div class="card-header">
+            <h3 class="card-body text-center">VP People You May Know</h3>
+        </div>
+        <br>
+            <div class="card-deck">
+                <div ng-repeat="user in users" class="card-body text-center card border-success mb-3">
+                        <img ng-src="{{user.picture.large}}" style="width:100%">
+                        <div class="containerCard">
+                            <p class="card-text"><b>{{user.name.first}} {{user.name.last}}</b></p> 
+                            <button id = "{{user.name.last}}" ng-click="requestFriend(user.name.last)" type="button" class="btn btn-success">Send Friend Request</button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="card-header">
+                    <h3 class="card-body text-center">VP Friends</h3>
+            </div>
+                <br>
+            <div class="card-deck">
+                    <div ng-repeat="friend in friends" class="card-body text-center card border-primary mb-3 bg-info">
+                            <img ng-src="{{friend.picture.large}}" style="width:100%">
+                            <div class="containerCard">
+                                <p class="card-text"><b>{{friend.name.first}} {{friend.name.last}}</b></p> 
+                                <div>
+                                    <b>City:</b> {{friend.location.city}} <br>
+                                    <b>State:</b>{{friend.location.state}} <br>
+                                    <b>Age: </b> {{friend.dob.age}}
+                                </div>
+                            </div>
+                    </div>
+                </div>
+</main>
+
